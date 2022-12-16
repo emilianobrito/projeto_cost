@@ -1,4 +1,5 @@
-import { parse, v4 as uuidv4 } from 'uuid'
+//import { parse, v4 as uuidv4 } from 'uuid'
+import {v4 as uuidv4 } from 'uuid'
 
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
@@ -20,7 +21,6 @@ function Project() {
   const [services, setServices] = useState([])
   const [message, setMessage] = useState('')
   const [type, setType] = useState('success')
-
   
   useEffect(() => {
     // Para ver o loading
@@ -43,7 +43,7 @@ function Project() {
 
   function editPost(project) {
     // budget validation
-    if (project.campo_orcamento < project.cost) {
+    if (project.custo_total_p < project.total_utilizado_p) {
       setMessage('O Orçamento não pode ser menor que o custo do projeto!')
       setType('error')
       return false
@@ -73,10 +73,10 @@ function Project() {
 
     const lastServiceCost = lastService.cost
 
-    const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
+    const newCost = parseFloat(project.total_utilizado_p) + parseFloat(lastServiceCost)
 
     // maximum value validation
-    if (newCost > parseFloat(project.campo_orcamento)) {
+    if (newCost > parseFloat(project.custo_total_p)) {
       setMessage('Orçamento ultrapassado, verifique o valor do serviço!')
       setType('error')
       project.services.pop() // remove serviço??????????????
@@ -88,7 +88,7 @@ function Project() {
     // this (javascript)
 
     // add service cost to project cost total
-    project.cost = newCost
+    project.total_utilizado_p = newCost
 
     fetch(`http://localhost:5000/projects/${project.id}`, {
       method: 'PATCH', // PATCH: atualiza parte dos dados/ putch: atualiza todos os dados/ post: adciona dados/ get: pega os dados.
@@ -156,10 +156,10 @@ function Project() {
                     <span>Categoria:</span> {project.category.name}
                   </p>
                   <p>
-                    <span>Total do orçamento:</span> R${project.campo_orcamento}
+                    <span>Total do orçamento:</span> R${project.custo_total_p}
                   </p>
                   <p>
-                    <span>Total utilizado:</span> R${project.cost}
+                    <span>Total utilizado:</span> R${project.total_utilizado_p}
                   </p>
                 </div>
               ) : (
@@ -194,7 +194,7 @@ function Project() {
                   <ServiceCard
                     id={service.id}
                     name={service.name}
-                    cost={service.cost}
+                    custo_total_s={service.custo_total_s}
                     description={service.description}
                     key={service.id}
                     handleRemove={removeService} //executa a função armazenada no handleRemove={removeService()} passando como argumento (id, cost)

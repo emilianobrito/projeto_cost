@@ -9,7 +9,7 @@ import ProjectCard from '../project/ProjectCard'
 import Message from '../layout/Message'
 
 import styles from './Projects.module.css'
-import { BsChevronCompactLeft } from 'react-icons/bs'
+// import { BsChevronCompactLeft } from 'react-icons/bs'
 
 function Projects() {
   const [projects, setProjects] = useState([])
@@ -71,7 +71,7 @@ function Projects() {
             <ProjectCard
               id={project.id}
               name={project.campo_nome}
-              budget={project.campo_orcamento}
+              budget={project.custo_total_p}
               category={project.category.name}
               key={project.id}
               handleRemove={removeProject}

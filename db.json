@@ -3,47 +3,47 @@
     {
       "numero_projeto": "1",
       "campo_nome": "Projeto de Infra",
-      "campo_orcamento": "10000",
+      "custo_total_p": "10000",
       "category": {
-        "id": "1",
-        "name": "Infra"
-      },
-      "cost": 7000,
+                    "id": "1",
+                    "name": "Infra"
+                  },
+      "total_utilizado_p": 7000,
       "services": [
-        {
-          "name": "Contratar um DevOps",
-          "cost": "5000",
-          "description": "DevOps para criar projeto na AWS",
-          "id": "79475653-9d65-4eb0-921b-9b12b6c6be52"
-        },
-        {
-          "name": "Design",
-          "cost": "2000",
-          "description": "Criação de logotipos",
-          "id": "b1472624-db9a-4667-bac8-ccf3799f9a6b"
-        }
-      ],
+                    {
+                      "name": "Contratar um DevOps",
+                      "custo_total_s": "5000",
+                      "description": "DevOps para criar projeto na AWS",
+                      "id": "79475653-9d65-4eb0-921b-9b12b6c6be52"
+                    },
+                    {
+                      "name": "Design",
+                      "custo_total_s": "2000",
+                      "description": "Criação de logotipos",
+                      "id": "b1472624-db9a-4667-bac8-ccf3799f9a6b"
+                    }
+                  ],
       "id": 2
     },
     {
       "numero_projeto": "2",
       "campo_nome": "Desenvolvimento do novo site",
-      "campo_orcamento": "30000",
+      "custo_total_p": "30000",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 12500,
+      "total_utilizado_p": 12500,
       "services": [
         {
           "name": "Backend",
-          "cost": "10000",
+          "custo_total_s": "10000",
           "description": "Desenvolver backend",
           "id": "3a468441-c64c-4ace-bf63-2e7060dad3c8"
         },
         {
           "name": "AWS (Amazon Web Services)",
-          "cost": "2500",
+          "custo_total_s": "2500",
           "description": "Contratação de servidor na nuvem",
           "id": "155306c7-75f2-45de-bdd2-ea85a14f01d4"
         }

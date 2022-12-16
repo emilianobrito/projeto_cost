@@ -10,7 +10,7 @@ function NewProject() {
   // initialize cost and services
   function createPost(project) {
     //execulta a função createPost recebendo o state project por props vinda do arquivo projectForm
-    project.cost = 0
+    project.total_utilizado_p = 0
     project.services = []
 
     fetch('http://localhost:5000/projects', {
